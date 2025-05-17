@@ -1,0 +1,613 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Zhengkun Chen - Academic Website</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Example: Style for education list items */
+			.education-item {
+				display: flex; /* Arrange logo and text side-by-side */
+				align-items: center; /* Vertically align items */
+				margin-bottom: 2em; /* Space between entries */
+			}
+			.education-item img {
+				width: 100px; /* Adjust logo size as needed */
+				height: auto;
+				margin-right: 1.5em; /* Space between logo and text */
+				flex-shrink: 0; /* Prevent logo from shrinking */
+			}
+			.education-item div {
+				flex-grow: 1; /* Allow text to take remaining space */
+			}
+            /* Example: Style for research sections (optional: columns) */
+            .research-grid {
+                display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+
+                gap: 2em;
+            }
+            .research-grid section {
+                 margin-bottom: 1em;
+            }
+            /* Add some spacing for the icons in the footer */
+            #footer .icons {
+                margin-top: 1.5em;
+            }
+            /* 调整整个 content 区块的行间距 */
+            .content .inner {
+                line-height: 1.6;  /* 控制文字行高 (默认约1.2) */
+            }
+
+            /* 单独调整段落间距 */
+            .content .inner p {
+                margin-bottom: 1em;  /* 控制段落之间的垂直间距 */
+            }
+
+            /* 调整标题与段落间距 */
+            .content .inner h1 {
+                margin-bottom: 0.1em;  /* 标题与下方段落的距离 */
+            }
+			.teaching-section {
+    margin-bottom: 2.5rem;
+			}
+
+			.section-title {
+    color: #f3f4f5;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+			}
+
+			.university-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+			}
+
+			.university {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #54b5f1;
+			}
+
+			.highlight-stat {
+    background: #f1c40f;
+    color: #2c3e50;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: bold;
+			}
+
+			.award-badge {
+    background: #e74c3c;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+			}
+
+			.course-list {
+    list-style: none;
+    padding: 0;
+			}
+
+			.course-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #ecf0f1;
+			}
+
+			.course-title {
+    font-weight: 500;
+    width: 60%;
+			}
+
+			.course-details {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+			}
+
+			.role {
+    font-style: italic;
+    color: #ffffff;
+			}
+
+			.term {
+    background: #3498db;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 5px;
+			}
+
+			.mentorship-group {
+    margin-bottom: 2rem;
+			}
+
+			.institution {
+    color: #54b5f1;
+    margin-bottom: 1rem;
+			}
+
+			.mentee-list {
+    list-style: none;
+    padding: 0;
+			}
+
+			.mentee-list li {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+			}
+
+			.student {
+    min-width: 120px;
+    font-weight: 500;
+			}
+
+			.project {
+    color: #ffffff;
+			}
+
+.research-grid {
+  display: grid;
+  gap: 2rem;
+  justify-content: center;
+}
+/*
+#main article {
+  width: auto;
+  max-width: 95vw;
+  padding: 4.5rem 2.5rem 1.5rem 2.5rem;
+  margin: 0 auto;
+  background-color: rgba(27, 31, 34, 0.85);
+  border-radius: 4px;
+}
+*/
+/* target only your research popup */
+#main article#research {
+  width: max-content;     /* grow to fit the grid */
+  height: max-content;    /* grow height to fit the grid */
+  max-width: 95vw;        /* but never overflow the viewport */
+  margin: 0 auto;         /* center it */
+  padding: 4.5rem 2.5rem 1.5rem 2.5rem;
+  background: rgba(27,31,34,0.85);
+  border-radius: 4px;
+}
+#main article#teaching {
+  width: max-content;     /* grow to fit the grid */
+  height: max-content;    /* grow height to fit the grid */
+  max-width: 95vw;        /* but never overflow the viewport */
+  margin: 0 auto;         /* center it */
+  padding: 4.5rem 2.5rem 1.5rem 2.5rem;
+  background: rgba(27,31,34,0.85);
+  border-radius: 4px;
+}
+
+@media (min-width: 900px) {
+  .research-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 481px) and (max-width: 899px) {
+  .research-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+@media (max-width: 480px) {
+  .research-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Always grow the research popup to fit all 3 columns ===== */
+#main article#research,
+#main article#research.active {
+  width: max-content      !important;  /* shrink‑to‑fit its content */
+  max-width: 95vw         !important;  /* but never overflow the viewport */
+  margin: 0 auto          !important;  /* center it horizontally */
+}
+
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<div id="wrapper">
+
+				<header id="header">
+                    <div class="logo" style="overflow: hidden; border-radius: 50%; width: 200px; height: 200px;">
+                        <img src="images/headshot.jpg" alt="Zhengkun Chen Headshot" style="width: 100%; height: 100%; object-fit: cover; object-position: 100% 20%;" />
+                        </div>
+						<div class="content">
+							<div class="inner">
+								<h1 style="text-transform: none;">Zhengkun Chen</h1>
+								<p style="text-transform: none; font-size: 1em;">Novo Nordisk Postdoctoral Research Fellow<br />
+									University of Oxford</p>
+								<p style="text-transform: none; font-size: 1.5em;">"Engineering microphysiological systems towards better medicine"</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro">Intro</a></li>
+								<li><a href="#education">Experiences</a></li>
+								<li><a href="#research">Research</a></li>
+								<li><a href="#teaching">Mentorship</a></li>
+								<li><a href="#publication">Publication</a></li>
+								</ul>
+						</nav>
+					</header>
+
+				<div id="main">
+
+						<article id="intro">
+								<h2 class="major">Intro</h2>
+								<p>I am a Novo Nordisk Postdoctoral Research Fellow in the Professor Dame Molly Stevens' Group at the University of Oxford. <br>My research lies at the intersection of biomaterials, microfluidics, and machine learning, where I develop next-generation microphysiological systems for disease modeling and drug screening.</p>
+
+								<h3>Selected Awards & Honors</h3>
+								<ul>
+									<li>University of Toronto Monetary Prize for Distinguished Dissertation Award - 2025</li>
+									<li>Chinese Government Award for Outstanding Self-Financed Students Abroad - 2024</li>
+                                    <li>Hong Kong SAR Government Scholarship - 2017, 2018</li>
+									</ul>
+							</article>
+
+						<article id="education">
+								<h2 class="major">Experiences</h2>
+								<ul style="list-style: none; padding: 0;">
+                                    <li class="education-item">
+                                        <img src="images/Oxford.png" alt="Oxford Logo"> <div>
+                                            <strong>University of Oxford</strong><br>
+                                            Novo Nordisk Postdoctoral Research Fellow<br>
+                                            Nov 2024 - Present <br>
+                                            <strong>Project</strong>: <em>Engineering human cardiac organoids at scale to accelerate in vitro cardiovascular research</em><br>
+                                            <strong>Advisor</strong>: Prof. Dame Molly M. Stevens, Prof. Paul Riley
+                                        </div>
+									<li class="education-item">
+										<img src="images/UofT.png" alt="UofT Logo"> <div>
+											<strong>University of Toronto</strong><br>
+											Ph.D. in Polymers and Materials Chemistry<br>
+											Sept 2019 - Sept 2024 <br>
+                                            <strong>Dissertation</strong>: <em>Development of In-vitro Skin Models for Screening Biologically Active Compounds and Modelling Diseases</em><br>
+                                            <strong>Advisor</strong>: Prof. Eugenia Kumacheva
+										</div>
+									</li>
+                                    <li class="education-item">
+										<img src="images/PolyU.png" alt="PolyU Logo"> <div>
+											<strong>The Hong Kong Polytechnic University</strong><br>
+											B.Sc. in Biomedical Engineering (First Class Honours)<br>
+											Sept 2015 - Jul 2019 <br>
+                                            <strong>Dissertation</strong>: <em>Establishment of An Integrated and Multifunctional Senescence Chip</em><br>
+                                            <strong>Advisor</strong>: Prof. Chunyi Wen 
+										</div>
+                                     <li class="education-item">
+										<img src="images/Penn.png" alt="Penn Logo"> <div>
+											<strong>University of Pennsylvania</strong><br>
+											Academic Exchange<br>
+											Sept 2018 - Dec 2018 <br>
+                                            <strong>Project</strong>: <em>Engineering granular hydrogels for biomedical applications</em><br>
+                                            <strong>Advisor</strong>: Prof. Jason A. Burdick 
+										</div>
+                                     <li class="education-item">
+										<img src="images/NUS.png" alt="NUS Logo"> <div>
+											<strong>National University of Singapore</strong><br>
+											Research Internship<br>
+											May 2018 - Aug 2018 <br>
+                                            <strong>Project</strong>: <em>Developing spiral microfluidics for label-free cell sorting</em><br>
+                                            <strong>Advisor</strong>: Prof. Chwee Teck Lim 
+										</div>                                        
+									</li>
+									</ul>
+							</article>
+
+						<article id="research">
+    <h2 class="major">Research Directions</h2>
+    
+    <div class="research-grid">
+        <!-- Biomaterials Section -->
+        <section>
+            <img src="images/Gel.png" alt="Biomimetic Materials Figure" style="width:100%;max-width:180px;display:block;margin:0 auto 1.2em auto;">
+            <h3 class="major" style="text-transform: none; letter-spacing: 0;font-size: 1.5em; ">Biomimetic Materials</h3>
+            <p>Design the next-generation biomaterials with programmable mechanical, chemical, and biological properties to recapitulate native tissue microenvironments.<br>
+            In particular, we are intested in:</p>
+            <ul>
+                <li>Fibrous hydrogel mimicking extracellular matrix architectures</li>
+                <li>Dynamic hydrogels with spatiotemporal control of complex mechanical properties</li>
+                <li>3D-printable materials for tissue culture and regenerative medicine</li>
+            </ul>
+            <div class="highlight-papers">
+                <strong>Representative Works:</strong>
+                <ul>
+                    <li>Decoupling hydrogel structure and mechanics in <em>Advanced Materials</em> 2024, 36 (2), 2305964.</li>
+                    <li>Recapitulating tissue fibrosis in <em>Biomacromolecules</em> 2020, 22(6), 2352-2362.</li>
+                    <li>Investigating hydrogel non-linear elasticity in <em>PNSA</em> 2023, 120(51), e2220755120.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Microfluidics Section -->
+        <section>
+            <img src="images/OOC.png" alt="Microphysiological Systems Figure" style="width:100%;max-width:180px;display:block;margin:0 auto 1.2em auto;">
+            <h3 class="major" style="text-transform: none; letter-spacing: 0; font-size: 1.5em;">Microphysiological Systems</h3>
+            <p>Redefining preclinical research with microphysiological systems that emulate human biology through microfluidics, organoids, and advanced materials.<br>
+               This vision will be realized through:</p>
+            <ul>
+                <li>Developing high-throughput screening platforms for drug discovery</li>
+                <li>Recapitulating complex 3D tissue architectures in vitro</li>
+                <li>Investigating inter-organ interaction towards human body-on-a-chip</li>
+            </ul>
+            <div class="highlight-papers">
+                <strong>Representative Works:</strong>
+                <ul>
+                    <li>Multilayered Skin Organoids in <em>Science Advances</em> 2025, 11(19), eadu1251.</li>
+                    <li>Dermal Spheroid Array in <em>Lab on a Chip</em> 2021, 21, 3952-3962.</li>
+                    <li>Multi-organ interaction in <em>Aggregate</em> 2023, e478.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Machine Learning Section -->
+        <section>
+            <img src="images/ML.png" alt="Machine Learning Figure" style="width:100%;max-width:180px;display:block;margin:0 auto 1.2em auto;">
+            <h3 class="major" style="text-transform: none; letter-spacing: 0;font-size: 1.5em;">Machine Learning-Guided Experimentation</h3>
+            <p>A paradigm shift in experimentation from trial-and-error to data-driven discovery with advanced machine learning algorithmn</p>
+            <ul>
+                <li>Closed-loop optimization of biomaterial formulations and therapeutic strategies</li>
+                <li>Data mining to accelerate material design for clinical applications</li>
+                <li>Multiparametric analysis of high-content screening data for deeper biological insights</li>
+            </ul>
+            <div class="highlight-papers">
+                <strong>Representative Works:</strong>
+                <ul>
+                    <li>Biomimetic scaffolds for in vitro disease modeling <em>Manuscript submitted</em>
+                    <li>Material design for targeted arthritis therapy <em>Manuscript in preparation</em>
+                    <li>Discovery of anti-fibrotic therapies <em>Project in progress</em> 
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <style>
+        .research-grid section {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .research-grid section:hover {
+            transform: translateY(-5px);
+        }
+
+        .highlight-papers {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 3px solid #3498db;
+        }
+
+        .highlight-papers strong {
+            color: #3498db;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+						</article>
+
+						<article id="teaching">
+								<h2 class="major">Teaching & Mentorship</h2>
+
+								<div class="teaching-section">
+									<h3 class="section-title">Courses Taught</h3>
+									
+									<div class="university-header">
+										<span class="university">University of Toronto</span>
+										<span class="highlight-stat">890+ teaching hours</span>
+										<span class="award-badge">2024 Teaching Assistant Excellence Award</span>
+									</div>
+									<ul class="course-list">
+										<li class="course-item">
+											<span class="course-title">CHM135 Chemistry: Physical Principles</span>
+											<div class="course-details">
+												<span class="role"><strong>Tutorial Instructor</strong></span>
+											</div>
+										</li>
+										<li class="course-item">
+											<span class="course-title">CHM135 Chemistry: Physical Principles</span>
+											<div class="course-details">
+												<span class="role"><strong>Lecture Moderator</strong></span>
+											</div>
+										</li>
+										<li class="course-item">
+											<span class="course-title">CHM135 Chemistry: Physical Principles</span>
+											<div class="course-details">
+												<span class="role"><strong>Laboratory Demonstrator</strong></span>
+											</div>
+										</li>
+										<li class="course-item">
+											<span class="course-title">CHM136 Introductory Organic Chemistry</span>
+											<div class="course-details">
+												<span class="role"><strong>Laboratory Demonstrator</strong></span>
+											</div>
+										</li>
+										<li class="course-item">
+											<span class="course-title">CHM247 Introductory Organic Chemistry II</span>
+											<div class="course-details">
+												<span class="role"><strong>Laboratory Demonstrator</strong></span>
+											</div>
+										</li>
+										<li class="course-item">
+											<span class="course-title">CHM249 Organic Chemistry</span>
+											<div class="course-details">
+												<span class="role"><strong>Laboratory Demonstrator</strong></span>
+											</div>
+										</li>
+									</ul>
+
+								<div class="teaching-section">
+									<h3 class="section-title">Student Mentorship</h3>
+																		
+									<div class="mentorship-group">
+										<h4 class="institution">University of Oxford</h4>
+										<ul class="mentee-list">
+											<li>
+												<span class="student">Y. S. (Ph.D.)</span>
+												<span class="project">Developing 3D printable tissue-mimetic hydrogels with pixel-resolution</span>
+											</li>
+											<li>
+												<span class="student">Y. Z. (Ph.D.)</span>
+												<span class="project">Engineering human brain development in vitro</span>
+											</li>
+										<h4 class="institution">University of Toronto</h4>
+										<ul class="mentee-list">
+											<li>
+												<span class="student">Z. M. (Ph.D.)</span>
+												<span class="project">Controlling Viscoelastic Properties of Synthetic Fibrillar Hydrogel for Tissue Engineering</span>
+											</li>
+											<li>
+												<span class="student">B. Z. (M.Sc.)</span>
+												<span class="project">Controlling Mechanical Properties and Bio-printability of Synthetic Fibrillar Hydrogels</span>
+											</li>
+											<li>
+                                                <span class="student">V. T. (B.Sc.)</span>
+                                                <span class="project">Screening Hydrophobic Active Ingredients on a Dermal Spheroid-on-a-Chip Platform</span>
+                                                <span class="award-badge">Chemistry Best Summer Research Award</span>
+											</li>
+											<li>
+												<span class="student">F.R. (Research Assistant)</span>
+												<span class="project">Safety Evaluation of Chemical Agents in a Microfluidic Spheroid Platform</span>
+											</li>
+										</ul>
+
+							</article>
+
+<article id="publication">
+    <h2 class="major">Publications</h2>
+    
+    <div class="scholar-link">
+        <a href="https://scholar.google.com.hk/citations?user=xcSIqQsAAAAJ&hl=en" target="_blank">
+            <i class="icon solid fa-graduation-cap"></i> Google Scholar Profile
+        </a>
+    </div>
+
+    <h3>First/Corresponding Author</h3>
+	<strong>*</strong><em>indicates equal contribution</em>&nbsp;&nbsp;&nbsp;&nbsp;<strong>#</strong><em>indicates co-corresponding author</em></br>
+	</br>
+    <ol class="publication-list">
+		<li><strong><u>Chen, Z.</u></strong>, Kalhori, D., Rakhshani, F., Andre, V., Deisenroth, T., Kumacheva, E. Multilayered skin organoids for in vitro screening and disease modeling. <em>Science Advances</em>, 2025, 11(19), eadu1251.</li>
+        
+		<li>Liu, K.,* Fang, X.,* Aazmi, A.,* Wang, Q.,* Gong, X.,* <strong><u>Chen, Z.</u></strong>,* Qin, M.,* Pu, C.,* Zhao, Y.,* Qiu, X., Wang, P., Yang, J., Zhang, Y., Yuan, H., Ma, L., Zhao, B., Wen, C., Mihaila, S., Wu, Y., Hou, H., Liu, C., Ruan, C. Organoids: Principle, Application and Perspective. <em>The Innovation Life</em>, 2024, 2 (3), 100088-1-100088-30.</li>
+
+        <li><strong><u>Chen, Z.</u></strong>, Sugimura, R., Zhang, Y.S., Ruan, C., Wen, C. Organoids in concert: engineering in vitro models towards enhanced fidelity. <em>Aggregate</em>, 2023, e478.</li>
+        
+        <li><strong><u>Chen, Z.</u></strong>, Ezzo, M., Zondag, B., Rakhshani, F., Ma, Y., Hinz, B., Kumacheva, E. Intrafibrillar Crosslinking Enables Decoupling of Mechanical Properties and Structure of a Composite Fibrous Hydrogel. <em>Advanced Materials</em>, 2024, 36 (2), 2305964.</li>
+        
+        <li><strong><u>Chen, Z.</u></strong>,* Khuu, N.,* Xu, F., Kheiri, S., Yakavets, I., Rakhshani, F., Morozova, S., Kumacheva, E. Printing Structurally Anisotropic Biocompatible Fibrillar Hydrogel for Guided Cell Alignment. <em>Gels</em>, 2022, 8, 685.</li>
+        
+        <li><strong><u>Chen, Z.,*</u></strong> Kheiri, S.,* Young, E., Kumacheva, E. Trends in Droplet Microfluidics: from Droplet Generation to Biomedical Applications. <em>Langmuir</em>, 2022, 38(20), 6233–6248.</li>
+        
+        <li>Zou Z., Luo X., <strong><u>Chen, Z.#</u></strong>, Zhang Y.S.#, Wen C.# Emerging microfluidics-enabled platforms for osteoarthritis management: from benchtop to bedside. <em>Theranostics</em>, 2022, 12(2):891-909.</li>
+        
+        <li><strong><u>Chen, Z.</u></strong>, Kheiri, S., Gevorkian, A., Young, E., Andre, V., Deisenroth, T., Kumacheva, E. Microfluidic arrays of dermal spheroids: a screening platform for active ingredients of skincare products. <em>Lab on a Chip</em>, 2021, 21, 3952-3962.</li>
+        
+        <li>Prince, E.,* <strong><u>Chen, Z.,*</u></strong> Khuu, N., Kumacheva, E. Nanofibrillar hydrogel for modeling fibrosis of the extracellular matrix. <em>Biomacromolecules</em>, 2020, 22(6), 2352-2362. (<strong>Journal cover</strong>)</li>
+        
+        <li><strong><u>Chen, Z.</u></strong>, Jiang, K., Zou, Z., Luo, X., Lim, C.T., Wen, C. High-throughput and label-free isolation of senescent murine mesenchymal stem cells. <em>Biomicrofluidics</em>, 2020, 14(3), 034106. (<strong>Featured article; Reported by Scilight</strong>)</li>
+        
+        <li><strong><u>Chen, Z.</u></strong>, Luo, X., Zhao, X., Yang, M., Wen, C. Label-free cell sorting strategies via biophysical and biochemical gradients. <em>Journal of Orthopaedic Translation</em>, 2019, 17, 55.</li>
+    </ol>
+
+    <h3>Collaborative Works</h3>
+    <ol class="publication-list">
+        <li>Ma, Y., Nouri, S., Pham, D.A., Ziyaeyan, A., <strong><u>Chen, Z.</u></strong>, Morozova, S., et al. Phytoglycogen Nanoconjugates as Joint Lubricant with Enhanced Retention. <em>Advanced Functional Materials</em>, 2024, 2413525.</li>
+        
+        <li>Yakavets, I., Ayachit, M., Kheiri, S., <strong><u>Chen, Z.</u></strong>, Rakhshani, F., et al. A Microfluidic Platform for Evaluating the Internalization of Liposome Drug Carriers in Tumor Spheroids. <em>ACS Applied Materials & Interfaces</em>, 2024, 16(8), 9690–9701.</li>
+        
+        <li>Prince, E., Morozova, S., <strong><u>Chen, Z.</u></strong>, Adibnia, V., Yakavets, I., et al. Nanocolloidal hydrogel mimics the structure and nonlinear mechanical properties of biological fibrous networks. <em>PNAS</em>, 2023, 120(51), e2220755120.</li>
+        
+        <li>Kheiri, S., <strong><u>Chen, Z.</u></strong>, Yakavets, I., Rakhshani, F., Young, E., Kumacheva, E. Integrating spheroid-on-a-chip with a rocker platform: a high-throughput biological screening platform. <em>Biotechnology Journal</em>, 2023, e2200621.</li>
+        
+        <li>Li, Y., Khuu, N., Zhang, N., Prince, E., Tao, H., <strong><u>Chen, Z.</u></strong>, et al. Matrix Stiffness Regulates Response of Breast Tumor Spheroids to Chemotherapy Treatment. <em>Biomacromolecules</em>, 2020, 22(2), 419-429. (<strong>Journal cover</strong>)</li>
+        
+        <li>Yu, L., Shi, C., Xi, W., Yeo, J.C., Soon, R.H.,<strong><u>Chen, Z.</u></strong>, et al. Streaming Current Based Microtubular Enzymatic Sensor for Self‐Powered Detection of Urea. <em>Advanced Materials Technologies</em>, 2019, 4(1), 1800430.</li>
+    </ol>
+
+    <style>
+        .scholar-link {
+            margin: 1.5rem 0 2rem;
+            text-align: center;
+        }
+        
+        .scholar-link a {
+            color: #3b8dbf;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #3498db;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .scholar-link a:hover {
+            background: #3498db;
+            color: white;
+        }
+        
+        .publication-list {
+            counter-reset: publication-counter;
+            padding-left: 2rem;
+        }
+        
+        .publication-list li {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            padding-left: 1rem;
+            border-left: 3px solid #ecf0f1;
+            transition: border-color 0.3s ease;
+        }
+        
+        .publication-list li:hover {
+            border-left-color: #3498db;
+        }
+        /*
+        .publication-list li::before {
+            content: "[" counter(publication-counter) "] ";
+            counter-increment: publication-counter;
+            color: #7f8c8d;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        */
+        h3 {
+            color: #f8f8f8;
+            border-bottom: 2px solid #2766ae;
+            padding-bottom: 0.5rem;
+            margin: 2rem 0 1.5rem;
+        }
+    </style>
+
+</article>
+
+						</div>
+
+				<footer id="footer">
+                        <ul class="icons">
+                            <li><a href="https://x.com/ChenZicor" class="icon brands fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+                            <li><a href="https://www.linkedin.com/in/zicorzkchen/" class="icon brands fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
+                            <li><a href="https://scholar.google.com.hk/citations?user=xcSIqQsAAAAJ&hl=en" class="icon solid fa-graduation-cap" target="_blank"><span class="label">Google Scholar</span></a></li>
+                            <li><a href="mailto:zhengkun.chen@dpag.ox.ac.uk" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                        </ul>
+                        <p class="copyright">&copy; 2025 Zhengkun Chen. </p>
+					</footer>
+
+			</div>
+
+		<div id="bg"></div>
+
+		<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
