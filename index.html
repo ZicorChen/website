@@ -190,16 +190,12 @@
   border-radius: 4px;
 }
 
-@media (min-width: 900px) {
-  .research-grid { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 768px) {
+    .research-grid {
+        grid-template-columns: 1fr;
+    }
 }
-@media (min-width: 481px) and (max-width: 899px) {
-  .research-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-}
-@media (max-width: 480px) {
-  .research-grid { grid-template-columns: 1fr; }
-}
-
+			
 /* ===== Always grow the research popup to fit all 3 columns ===== */
 #main article#research,
 #main article#research.active {
