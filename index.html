@@ -7,204 +7,243 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			/* Example: Style for education list items */
 			.education-item {
-				display: flex; /* Arrange logo and text side-by-side */
-				align-items: center; /* Vertically align items */
-				margin-bottom: 2em; /* Space between entries */
+				display: flex; 
+				align-items: center; 
+				margin-bottom: 2em;
 			}
 			.education-item img {
-				width: 100px; /* Adjust logo size as needed */
+				width: 100px; 
 				height: auto;
-				margin-right: 1.5em; /* Space between logo and text */
-				flex-shrink: 0; /* Prevent logo from shrinking */
+				margin-right: 1.5em; 
+				flex-shrink: 0;
 			}
 			.education-item div {
-				flex-grow: 1; /* Allow text to take remaining space */
+				flex-grow: 1; 
 			}
-            /* Example: Style for research sections (optional: columns) */
             .research-grid {
                 display: grid;
-		/*grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
-		grid-template-columns: repeat(3, 1fr); /* 3-column layout for desktop */
+                grid-template-columns: repeat(3, 1fr); 
                 padding: 1rem;
                 gap: 2em;
+                justify-content: center;
             }
             .research-grid section {
-                 margin-bottom: 1em;
+                margin-bottom: 1em;
+                background: rgba(255,255,255,0.05);
+                padding: 2rem;
+                border-radius: 10px;
+                transition: transform 0.3s ease;
             }
-            /* Add some spacing for the icons in the footer */
+            .research-grid section:hover {
+                transform: translateY(-5px);
+            }
+
+            .highlight-papers {
+                margin-top: 1.5rem;
+                padding: 1rem;
+                background: rgba(52, 152, 219, 0.1);
+                border-left: 3px solid #3498db;
+            }
+
+            .highlight-papers strong {
+                color: #3498db;
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
             #footer .icons {
                 margin-top: 1.5em;
             }
-            /* 调整整个 content 区块的行间距 */
             .content .inner {
-                line-height: 1.6;  /* 控制文字行高 (默认约1.2) */
+                line-height: 1.6; 
             }
-
-            /* 单独调整段落间距 */
             .content .inner p {
-                margin-bottom: 1em;  /* 控制段落之间的垂直间距 */
+                margin-bottom: 1em;  
             }
-
-            /* 调整标题与段落间距 */
             .content .inner h1 {
-                margin-bottom: 0.1em;  /* 标题与下方段落的距离 */
+                margin-bottom: 0.1em;  
             }
 			.teaching-section {
-    margin-bottom: 2.5rem;
+                margin-bottom: 2.5rem;
 			}
-
 			.section-title {
-    color: #f3f4f5;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
+                color: #f3f4f5;
+                border-bottom: 2px solid #3498db;
+                padding-bottom: 0.5rem;
+                margin-bottom: 1.5rem;
 			}
 
 			.university-header {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-    margin-bottom: 1.5rem;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                align-items: center;
+                margin-bottom: 1.5rem;
 			}
 
 			.university {
-    font-size: 1.2em;
-    font-weight: 600;
-    color: #54b5f1;
+                font-size: 1.2em;
+                font-weight: 600;
+                color: #54b5f1;
 			}
 
 			.highlight-stat {
-    background: #f1c40f;
-    color: #2c3e50;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-weight: bold;
+                background: #f1c40f;
+                color: #2c3e50;
+                padding: 0.3rem 0.8rem;
+                border-radius: 15px;
+                font-weight: bold;
 			}
 
 			.award-badge {
-    background: #e74c3c;
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
+                width: fit-content;
+                background: #e74c3c;
+                color: white;
+                padding: 0.3rem 0.8rem;
+                border-radius: 15px;
 			}
 
 			.course-list {
-    list-style: none;
-    padding: 0;
+                list-style: none;
+                padding: 0;
 			}
 
 			.course-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid #ecf0f1;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid #ecf0f1;
 			}
 
 			.course-title {
-    font-weight: 500;
-    width: 60%;
+                font-weight: 500;
+                width: 60%;
 			}
 
 			.course-details {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
+                display: flex;
+                gap: 1.5rem;
+                align-items: center;
 			}
 
 			.role {
-    font-style: italic;
-    color: #ffffff;
-			}
-
-			.term {
-    background: #3498db;
-    color: white;
-    padding: 0.2rem 0.6rem;
-    border-radius: 5px;
+                font-style: italic;
+                color: #ffffff;
 			}
 
 			.mentorship-group {
-    margin-bottom: 2rem;
+                margin-bottom: 2rem;
 			}
 
 			.institution {
-    color: #54b5f1;
-    margin-bottom: 1rem;
+                color: #54b5f1;
+                margin-bottom: 1rem;
 			}
 
 			.mentee-list {
-    list-style: none;
-    padding: 0;
+                list-style: none;
+                padding: 0;
+                margin: 1rem 0;
 			}
 
 			.mentee-list li {
-    display: flex;
-    gap: 1rem;
-    padding: 0.5rem 0;
+                margin-bottom: 2rem;
+                padding-left: 1rem;
+                border-left: 3px solid #ccc;
 			}
 
 			.student {
-    min-width: 120px;
-    font-weight: 500;
+                min-width: 120px;
+                font-weight: 500;
 			}
 
 			.project {
-    color: #ffffff;
+                color: #ffffff;
 			}
+            #main article#research {
+                width: max-content;     
+                height: max-content;
+                max-width: 95vw;
+                margin: 0 auto;
+                padding: 4.5rem 2.5rem 1.5rem 2.5rem;
+                background: rgba(27,31,34,0.85);
+                border-radius: 4px;
+            }
+            #main article#teaching {
+                width: max-content;     
+                height: max-content;
+                max-width: 95vw; 
+                margin: 0 auto;
+                padding: 4.5rem 2.5rem 1.5rem 2.5rem;
+                background: rgba(27,31,34,0.85);
+                border-radius: 4px;
+            }
 
-.research-grid {
-  display: grid;
-  gap: 2rem;
-  justify-content: center;
-}
-/*
-#main article {
-  width: auto;
-  max-width: 95vw;
-  padding: 4.5rem 2.5rem 1.5rem 2.5rem;
-  margin: 0 auto;
-  background-color: rgba(27, 31, 34, 0.85);
-  border-radius: 4px;
-}
-*/
-/* target only your research popup */
-#main article#research {
-  width: max-content;     /* grow to fit the grid */
-  height: max-content;    /* grow height to fit the grid */
-  max-width: 95vw;        /* but never overflow the viewport */
-  margin: 0 auto;         /* center it */
-  padding: 4.5rem 2.5rem 1.5rem 2.5rem;
-  background: rgba(27,31,34,0.85);
-  border-radius: 4px;
-}
-#main article#teaching {
-  width: max-content;     /* grow to fit the grid */
-  height: max-content;    /* grow height to fit the grid */
-  max-width: 95vw;        /* but never overflow the viewport */
-  margin: 0 auto;         /* center it */
-  padding: 4.5rem 2.5rem 1.5rem 2.5rem;
-  background: rgba(27,31,34,0.85);
-  border-radius: 4px;
+        @media (max-width: 768px) {
+        .research-grid {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+            padding: 0.5rem !important;
+        }
+        .research-grid section h3.major {
+            font-size: 1.3rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0.75rem !important;
+        }
+        .research-grid section p,
+        .research-grid section li {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            white-space: normal;
+        }
+        #main article#research {
+                width: max-content;     
+                height: max-content;
+                max-width: 120vw;
+                margin: 0 auto;
+                padding: 4.5rem 2.5rem 1.5rem 2.5rem;
+                background: rgba(27,31,34,0.85);
+                border-radius: 4px;
+            }
+        #main article#teaching {
+                width: max-content;     
+                height: max-content;
+                max-width: 120vw;
+                margin: 0 auto;
+                padding: 4.5rem 2.5rem 1.5rem 2.5rem;
+                background: rgba(27,31,34,0.85);
+                border-radius: 4px;
+            }
+        }
+        .mentee-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
 }
 
-@media (max-width: 768px) {
-    .research-grid {
-        grid-template-columns: 1fr;
-	padding: 1rem 1.25rem; /* Adjust side padding for smaller screens */
-    }
+.mentee-list li {
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 3px solid #ccc;
 }
-			
-/* ===== Always grow the research popup to fit all 3 columns ===== */
-#main article#research,
-#main article#research.active {
-  width: max-content      !important;  /* shrink‑to‑fit its content */
-  max-width: 95vw         !important;  /* but never overflow the viewport */
-  margin: 0 auto          !important;  /* center it horizontally */
+
+.supervision-summary {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
 }
+
+.project-summary {
+  display: block;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
 
 		</style>
 	</head>
@@ -301,7 +340,6 @@
     <h2 class="major">Research Directions</h2>
     
     <div class="research-grid">
-        <!-- Biomaterials Section -->
         <section>
             <img src="images/Gel.png" alt="Biomimetic Materials Figure" style="width:100%;max-width:180px;display:block;margin:0 auto 1.2em auto;">
             <h3 class="major" style="text-transform: none; letter-spacing: 0;font-size: 1.5em; ">Biomimetic Materials</h3>
@@ -322,7 +360,6 @@
             </div>
         </section>
 
-        <!-- Microfluidics Section -->
         <section>
             <img src="images/OOC.png" alt="Microphysiological Systems Figure" style="width:100%;max-width:180px;display:block;margin:0 auto 1.2em auto;">
             <h3 class="major" style="text-transform: none; letter-spacing: 0; font-size: 1.5em;">Microphysiological Systems</h3>
@@ -343,7 +380,6 @@
             </div>
         </section>
 
-        <!-- Machine Learning Section -->
         <section>
             <img src="images/ML.png" alt="Machine Learning Figure" style="width:100%;max-width:180px;display:block;margin:0 auto 1.2em auto;">
             <h3 class="major" style="text-transform: none; letter-spacing: 0;font-size: 1.5em;">Machine Learning-Guided Experimentation</h3>
@@ -364,42 +400,17 @@
         </section>
     </div>
 
-    <style>
-        .research-grid section {
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .research-grid section:hover {
-            transform: translateY(-5px);
-        }
-
-        .highlight-papers {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background: rgba(52, 152, 219, 0.1);
-            border-left: 3px solid #3498db;
-        }
-
-        .highlight-papers strong {
-            color: #3498db;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-    </style>
 						</article>
 
 						<article id="teaching">
 								<h2 class="major">Teaching & Mentorship</h2>
 
 								<div class="teaching-section">
-									<h3 class="section-title">Courses Taught</h3>
+									<h3 class="section-title">Teaching</h3>
 									
 									<div class="university-header">
-										<span class="university">University of Toronto</span>
-										<span class="highlight-stat">890+ teaching hours</span>
+										<span class="university">University of Toronto</div>
+										<div><span class="highlight-stat">890+ teaching hours</span>
 										<span class="award-badge">2024 Teaching Assistant Excellence Award</span>
 									</div>
 									<ul class="course-list">
@@ -440,41 +451,45 @@
 											</div>
 										</li>
 									</ul>
-
+<div class="teaching-section">
+    <h4 class="university-header">Student Feedback</h4>
+    <ul class="feedback-list">
+    <li class="feedback-item" style="width:80vw; list-style: none; padding-left: 0;">
+        <blockquote style="margin-bottom: 0.5em;">
+            “Zhengkun always comes to the tutorial prepared with a slideshow. He encourages us to work in groups and try to answer to the best of our abilities. He is very nice and provides thorough explanation for both tutorial questions and any questions we may bring. He also adds lovely chemistry puns to his slides which are great for morale.”
+        </blockquote>
+        <cite style="display: block; text-align: right; font-style: normal; color: #ffffff;">1st Year Undergraduate Student, CHM135</cite>
+    </li>
+    <li class="feedback-item" style="width:80vw; list-style: none; padding-left: 0;">
+        <blockquote style="margin-bottom: 0.5em;">
+            “Zhengkun is good at explaining the lab materials and especially he is always open to questions so I can literally ask him a thousand questions in one lab, and he’s still happy to answer all of them without judgements. He’s also so sweet and nice when it comes to advice for future plan after our graduation. Thanks Zhengkun for providing me a meaningful experience in Chm249 lab!”
+        </blockquote>
+        <cite style="display: block; text-align: right; font-style: normal; color: #ffffff;">2nd Year Graduate Student, CHM249</cite>
+    </li>
+    </ul>
+  </div>
 								<div class="teaching-section">
-									<h3 class="section-title">Student Mentorship</h3>
+									<h3 class="section-title">Mentorship</h3>
 																		
-									<div class="mentorship-group">
-										<h4 class="institution">University of Oxford</h4>
-										<ul class="mentee-list">
-											<li>
-												<span class="student">Y. S. (Ph.D.)</span>
-												<span class="project">Developing 3D printable tissue-mimetic hydrogels with pixel-resolution</span>
-											</li>
-											<li>
-												<span class="student">Y. Z. (Ph.D.)</span>
-												<span class="project">Engineering human brain development in vitro</span>
-											</li>
-										<h4 class="institution">University of Toronto</h4>
-										<ul class="mentee-list">
-											<li>
-												<span class="student">Z. M. (Ph.D.)</span>
-												<span class="project">Controlling Viscoelastic Properties of Synthetic Fibrillar Hydrogel for Tissue Engineering</span>
-											</li>
-											<li>
-												<span class="student">B. Z. (M.Sc.)</span>
-												<span class="project">Controlling Mechanical Properties and Bio-printability of Synthetic Fibrillar Hydrogels</span>
-											</li>
-											<li>
-                                                <span class="student">V. T. (B.Sc.)</span>
-                                                <span class="project">Screening Hydrophobic Active Ingredients on a Dermal Spheroid-on-a-Chip Platform</span>
-                                                <span class="award-badge">Chemistry Best Summer Research Award</span>
-											</li>
-											<li>
-												<span class="student">F.R. (Research Assistant)</span>
-												<span class="project">Safety Evaluation of Chemical Agents in a Microfluidic Spheroid Platform</span>
-											</li>
-										</ul>
+								<div class="mentorship-group">
+                                    <h4 class="institution">University of Oxford</h4>
+                                    <ul class="mentee-list">
+                                        <li>
+                                            <div class="supervision-summary">2 Ph.D. students</div>
+                                            <div class="project-summary">Projects involved biomaterial design and organoids.</div>
+                                        </li>
+                                    </ul>
+
+                                    <h4 class="institution">University of Toronto</h4>
+                                    <ul class="mentee-list">
+                                        <li>
+                                            <div class="supervision-summary">1 Ph.D., 1 M.Sc., 1 B.Sc., and 1 research assistant</div>
+                                            <div class="project-summary">Projects involved biomaterial design, bioprinting, and organ-on-a-chip.</div>
+                                            <div class="award-badge">🏆 Chemistry Best Summer Research Award (Undergraduate mentee)</div>
+                                        </li>
+                                    </ul>
+                                </div>
+
 
 							</article>
 
@@ -566,15 +581,7 @@
         .publication-list li:hover {
             border-left-color: #3498db;
         }
-        /*
-        .publication-list li::before {
-            content: "[" counter(publication-counter) "] ";
-            counter-increment: publication-counter;
-            color: #7f8c8d;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-        */
+
         h3 {
             color: #f8f8f8;
             border-bottom: 2px solid #2766ae;
